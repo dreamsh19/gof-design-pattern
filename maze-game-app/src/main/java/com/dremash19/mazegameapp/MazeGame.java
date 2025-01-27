@@ -1,11 +1,6 @@
 package com.dremash19.mazegameapp;
 
-import com.dremash19.mazegameapp.model.Door;
-import com.dremash19.mazegameapp.model.Maze;
-import com.dremash19.mazegameapp.model.Room;
-import com.dremash19.mazegameapp.model.Wall;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
+import com.dremash19.mazegameapp.model.*;
 import org.springframework.stereotype.Component;
 
 import static com.dremash19.mazegameapp.model.Direction.*;
@@ -40,4 +35,18 @@ public class MazeGame{
         return maze;
     }
 
+    public Maze createMazeByBuilder(MazeBuilder mazeBuilder) {
+        mazeBuilder.buildMaze();
+        mazeBuilder.buildRoom(1);
+        mazeBuilder.buildRoom(2);
+        mazeBuilder.buildDoor(1, 2);
+        return mazeBuilder.getMaze();
+    }
+
+    public Maze createComplexMazeByBuilder(MazeBuilder mazeBuilder) {
+        for (int i = 0; i < 1000; i++) {
+            mazeBuilder.buildRoom(i);
+        }
+        return mazeBuilder.getMaze();
+    }
 }
