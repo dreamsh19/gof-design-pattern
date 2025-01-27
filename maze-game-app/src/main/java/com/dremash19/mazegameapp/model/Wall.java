@@ -1,13 +1,9 @@
 package com.dremash19.mazegameapp.model;
 
-public class Wall implements MapSite {
+public abstract class Wall implements MapSite {
 
-    public Wall() {
+    protected Wall() {
 
     }
 
-    @Override
-    public void enter() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 }

@@ -1,11 +1,7 @@
 package com.dremash19.mazegameapp.model;
 
-public class Maze {
-    public void addRoom(Room room){
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+public abstract class Maze {
+    public abstract void addRoom(Room room);
 
-    public Room roomNumber(int roomNumber){
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+    protected abstract Room roomNumber(int roomNumber);
 }
