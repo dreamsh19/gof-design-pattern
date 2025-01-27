@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import static com.dremash19.mazegameapp.model.Direction.*;
 
 @Component
-public class MazeGame{
+public class MazeGame {
 
     private MazeGame() {
     }
@@ -49,4 +49,19 @@ public class MazeGame{
         }
         return mazeBuilder.getMaze();
     }
+
+    public Maze createStandardMaze() {
+        StandardMazeBuilder mazeBuilder = new StandardMazeBuilder();
+        createMazeByBuilder(mazeBuilder);
+        return mazeBuilder.getMaze();
+    }
+
+    public void printMazeCount() {
+        CountingMazeBuilder mazeBuilder = new CountingMazeBuilder();
+        createMazeByBuilder(mazeBuilder);
+
+        System.out.println("Door :" + mazeBuilder.getDoorCount());
+        System.out.println("Room :" + mazeBuilder.getRoomCount());
+    }
+
 }
