@@ -1,17 +1,12 @@
 package com.dremash19.mazegameapp;
 
-import com.dremash19.mazegameapp.model.Door;
-import com.dremash19.mazegameapp.model.Maze;
-import com.dremash19.mazegameapp.model.Room;
-import com.dremash19.mazegameapp.model.Wall;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
+import com.dremash19.mazegameapp.model.*;
 import org.springframework.stereotype.Component;
 
 import static com.dremash19.mazegameapp.model.Direction.*;
 
 @Component
-public class MazeGame{
+public class MazeGame {
 
     private MazeGame() {
     }
@@ -38,6 +33,35 @@ public class MazeGame{
         r2.setSide(WEST, door);
 
         return maze;
+    }
+
+    public Maze createMazeByBuilder(MazeBuilder mazeBuilder) {
+        mazeBuilder.buildMaze();
+        mazeBuilder.buildRoom(1);
+        mazeBuilder.buildRoom(2);
+        mazeBuilder.buildDoor(1, 2);
+        return mazeBuilder.getMaze();
+    }
+
+    public Maze createComplexMazeByBuilder(MazeBuilder mazeBuilder) {
+        for (int i = 0; i < 1000; i++) {
+            mazeBuilder.buildRoom(i);
+        }
+        return mazeBuilder.getMaze();
+    }
+
+    public Maze createStandardMaze() {
+        StandardMazeBuilder mazeBuilder = new StandardMazeBuilder();
+        createMazeByBuilder(mazeBuilder);
+        return mazeBuilder.getMaze();
+    }
+
+    public void printMazeCount() {
+        CountingMazeBuilder mazeBuilder = new CountingMazeBuilder();
+        createMazeByBuilder(mazeBuilder);
+
+        System.out.println("Door :" + mazeBuilder.getDoorCount());
+        System.out.println("Room :" + mazeBuilder.getRoomCount());
     }
 
 }
