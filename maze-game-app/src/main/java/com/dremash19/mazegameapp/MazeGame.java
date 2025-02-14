@@ -4,14 +4,23 @@ import com.dremash19.mazegameapp.model.Door;
 import com.dremash19.mazegameapp.model.Maze;
 import com.dremash19.mazegameapp.model.Room;
 import com.dremash19.mazegameapp.model.Wall;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import static com.dremash19.mazegameapp.model.Direction.*;
 
-@Component
-public class MazeGame{
+public class MazeGame {
+
+    @Configuration
+    public static class Singleton {
+        private static final MazeGame INSTANCE = new MazeGame();
+
+        @Bean
+        public static MazeGame getInstance() {
+            return INSTANCE;
+        }
+
+    }
 
     private MazeGame() {
     }
