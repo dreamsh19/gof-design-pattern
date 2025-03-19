@@ -1,0 +1,25 @@
+---
+created: 2025-03-19 (수) 22:55:21
+modified: 2025-03-19 (수) 23:08:36
+---
+- 행동 패턴은 알고리즘과 객체간 책임의 분배에 대해 다룸.
+- 클래스 또는 객체간 구성 뿐 아니라 객체간 "상호작용"에 대한 패턴을 다룸
+- 제어 흐름은 복잡할 수 있으나, 객체들이 상호간 어떻게 연결되어 있는지에 집중하게 하기 위한 패턴이다.
+- Behavioral class pattern
+	- 상속을 통해 책임을 분배
+	- Template Method
+	- Interpreter 패턴
+- Behavioral object pattern
+	- 상속보다는 객체 조합을 활용
+	- Peer(동료) 객체간 서로 어떻게 "협력"하는지를 다룬다.
+		- 그리고 이때 서로가 서로를 얼마나 잘 아는가(얼마나 강하게 결합되어있는가) 가 중요하다.
+	- Mediator
+	- Chain of Responsibility
+	- Observer
+- 그 외
+	- "행동" 자체를 추상화/캡슐화하기 위한 목적의 패턴들
+	- Strategy
+	- Command
+	- State
+	- Visitor
+	- Iterator
